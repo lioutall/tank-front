@@ -79,6 +79,9 @@ export default class PreviewerHelper {
       if(previewUrl) {
         targetUrl = targetUrl.replace("{originUrl}", previewUrl);
         targetUrl = targetUrl.replace("{url}", previewUrl);
+        targetUrl = targetUrl.replace("{domain}", previewUrl.replace(/^(https?:\/\/[^/]+)/, "$1"))
+        targetUrl = targetUrl.replace("{uri}", previewUrl.replace(/^https?:\/\/[^/]+(\/.+)$/, "$1"))
+
         if (engine.previewInSite) {
           BrowserPreviewer.show(fileName, targetUrl, matter.size);
         } else {
@@ -90,6 +93,8 @@ export default class PreviewerHelper {
         PreviewerHelper.prepareMatterUrl(matter, needToken, function (url) {
           targetUrl = targetUrl.replace("{originUrl}", matter.getPreviewUrl());
           targetUrl = targetUrl.replace("{url}", encodeURIComponent(url));
+          targetUrl = targetUrl.replace("{domain}", url.replace(/^(https?:\/\/[^/]+)/, "$1"))
+          targetUrl = targetUrl.replace("{uri}", url.replace(/^https?:\/\/[^/]+(\/.+)$/, "$1"))
 
           if (engine.previewInSite) {
             BrowserPreviewer.show(fileName, targetUrl, matter.size);

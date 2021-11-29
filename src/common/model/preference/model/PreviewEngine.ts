@@ -49,6 +49,13 @@ export default class PreviewEngine extends Base {
     officeEngine.previewInSite = true;
     defaultEngines.push(officeEngine);
 
+    // 添加txt和markdown的预览引擎
+    let markdownEngine: PreviewEngine = new PreviewEngine();
+    markdownEngine.url = "{originUrl}";
+    markdownEngine.extensions = "txt,md";
+    markdownEngine.previewInSite = true;
+    defaultEngines.push(markdownEngine);
+
     //添加全局预览引擎，使用浏览器预览能力。
     let globalEngine: PreviewEngine = new PreviewEngine();
     globalEngine.url = "{originUrl}";
