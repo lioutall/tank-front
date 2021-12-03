@@ -4,7 +4,7 @@ import MessageBoxUtil from "../../../common/util/MessageBoxUtil";
 import Moon from "../../../common/model/global/Moon";
 import PreviewEngine from "../../../common/model/preference/model/PreviewEngine";
 import Matter from "../../../common/model/matter/Matter";
-import BrowserPreviewer from "./BrowserPreviewer";
+import MarkdownEditor from "./MarkdownEditor";
 import DownloadToken from "../../../common/model/download/token/DownloadToken";
 
 /**
@@ -83,7 +83,7 @@ export default class PreviewerHelper {
         targetUrl = targetUrl.replace("{uri}", previewUrl.replace(/^https?:\/\/[^/]+(\/.+)$/, "$1"))
 
         if (engine.previewInSite) {
-          BrowserPreviewer.show(fileName, targetUrl, matter.size);
+          MarkdownEditor.show(fileName, targetUrl, matter.size);
         } else {
           window.open(targetUrl);
         }
@@ -97,7 +97,7 @@ export default class PreviewerHelper {
           targetUrl = targetUrl.replace("{uri}", url.replace(/^https?:\/\/[^/]+(\/.+)$/, "$1"))
 
           if (engine.previewInSite) {
-            BrowserPreviewer.show(fileName, targetUrl, matter.size);
+            MarkdownEditor.show(fileName, targetUrl, matter.size);
           } else {
             window.open(targetUrl);
           }
