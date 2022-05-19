@@ -41,7 +41,9 @@ export default class MarkdownEditor extends React.Component<IProps, IState> {
     
 
     const vditor = new Vditor('vditor', {
-      height: 360,
+      height: 'auto',
+      width: '100%',
+      cdn: 'http://note.tollge.cn:88/static/vditor',
       toolbarConfig: {
         pin: true,
       },
